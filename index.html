@@ -54,6 +54,7 @@
     .hero-tag {
       font-size: 0.9rem;
       color: #a5b4fc;
+      max-width: 260px;
     }
 
     /* DEMO CARD */
@@ -145,10 +146,11 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
-        <h1>Customer 360° Support for Zoho</h1>
+        <h1>Customer 360° Support for Zoho Teams</h1>
         <p class="hero-sub">
-          A smart Zoho SalesIQ Zobot that qualifies visitors, captures leads and
-          pushes them into <strong>Zoho CRM</strong> – so your team gets full context.
+          A full–stack Zoho support assistant that connects
+          <strong>SalesIQ, Zoho Desk, Zoho CRM, and Zoho Subscriptions</strong>.
+          It qualifies visitors, surfaces past tickets and plan details, and routes conversations to the right engineer – all in one place.
         </p>
         <button class="hero-btn"
           onclick="document.getElementById('demo-card').scrollIntoView({behavior:'smooth'})">
@@ -157,7 +159,7 @@
       </div>
       <div class="hero-tag">
         <span>Built with</span><br />
-        <strong>Zoho SalesIQ + Zoho CRM</strong>
+        <strong>Zoho SalesIQ · Zoho Desk · Zoho CRM · Zoho Subscriptions</strong>
       </div>
     </section>
 
@@ -166,46 +168,65 @@
       <div class="card">
         <h2>Live Demo: Customer 360° Support Bot</h2>
         <p>
-          Open the chat bubble in the bottom-right corner to talk to the bot.
+          Click the chat bubble in the bottom-right corner to talk to the bot.
           It will ask whether you're a <strong>New visitor</strong> or an
-          <strong>Existing customer</strong>, then walk you through the flow.
+          <strong>Existing customer</strong> and then show how the full Customer 360° view works.
         </p>
         <p>
-          For new visitors, the bot collects your name, email, company and
-          requirement, and automatically creates a <strong>Lead</strong> in Zoho CRM.
-          For existing customers, it forwards the chat to an operator with your email
-          so support gets instant context.
+          For <strong>new visitors</strong>, the bot collects name, email, company and requirement,
+          scores the lead (Hot / Warm / Cold) and can push it into <strong>Zoho CRM</strong>
+          for your sales team.
+        </p>
+        <p>
+          For <strong>existing customers</strong>, the bot verifies the email, fetches the customer’s
+          latest <strong>Zoho Desk tickets</strong> and active <strong>Zoho Subscriptions plan</strong>,
+          and then forwards the chat to an operator with that context attached.
         </p>
         <p class="hint">
-          Tip: Run the <strong>New visitor</strong> flow, then open
-          <strong>Zoho CRM &gt; Leads</strong> to see the record created by the bot.
+          Tip: Try the <strong>New visitor</strong> flow first, then the
+          <strong>Existing customer</strong> flow with your email.
         </p>
       </div>
     </section>
 
     <!-- FEATURES -->
     <section class="features">
-      <h2>Why Customer 360° Support?</h2>
+      <h2>Why Customer 360° Support for Zoho?</h2>
       <div class="feature-grid">
         <article class="feature">
           <h3>1. Automatic Lead Capture</h3>
           <p>
-            Every qualified website visitor becomes a structured lead in Zoho CRM
-            with name, email, company and requirement – no manual entry needed.
+            Every qualified website visitor becomes a structured lead in
+            <strong>Zoho CRM</strong> with name, email, company, requirement and a priority score –
+            no manual entry needed.
           </p>
         </article>
+
         <article class="feature">
           <h3>2. Smart Visitor Routing</h3>
           <p>
-            New visitors go through a guided flow, while existing customers are
-            routed to support with their email and context pre-attached.
+            The bot classifies traffic as <strong>New visitor</strong> or
+            <strong>Existing customer</strong>, then sends them down the right flow –
+            lead creation for sales, or rich-context handoff for support engineers.
           </p>
         </article>
+
         <article class="feature">
-          <h3>3. 360° Context for Your Team</h3>
+          <h3>3. 360° Context for Engineers</h3>
           <p>
-            Sales and support see the same information inside Zoho CRM and SalesIQ,
-            making it easier to follow up, prioritize and close conversations.
+            When a chat reaches an operator, they instantly see recent
+            <strong>Zoho Desk tickets</strong>, subscription status from
+            <strong>Zoho Subscriptions</strong>, and lead information from
+            <strong>Zoho CRM</strong> – all sourced via Zoho Connections.
+          </p>
+        </article>
+
+        <article class="feature">
+          <h3>4. Built for Zoho’s Internal Stack</h3>
+          <p>
+            Designed specifically for Zoho teams: it uses SalesIQ Zobot, OAuth Connections,
+            and Deluge to talk to Desk, CRM and Subscriptions, so it fits naturally into
+            existing Zoho workflows.
           </p>
         </article>
       </div>
@@ -215,13 +236,19 @@
     <section class="flow">
       <h2>How it works</h2>
       <ol>
-        <li>Visitor lands on this website and opens the Zoho SalesIQ chat bubble.</li>
+        <li>Visitor lands on this website and opens the <strong>Zoho SalesIQ</strong> chat bubble.</li>
         <li>Bot asks: <strong>“New visitor”</strong> or <strong>“Existing customer”</strong>.</li>
         <li>
-          New visitor → bot collects details → creates a <strong>Lead</strong> in Zoho CRM.
+          For a new visitor, the bot collects details, scores priority, and can create a
+          <strong> Lead in Zoho CRM</strong>.
         </li>
         <li>
-          Existing customer → bot verifies email → forwards chat to operator with context.
+          For an existing customer, the bot verifies their email, fetches last tickets from
+          <strong> Zoho Desk</strong> and plan info from <strong>Zoho Subscriptions</strong>,
+          then forwards the conversation to an operator with all that context.
+        </li>
+        <li>
+          After the chat, the bot can ask for a quick <strong>CSAT / rating</strong> so teams can monitor support quality.
         </li>
       </ol>
     </section>
@@ -229,13 +256,13 @@
     <!-- FOOTER -->
     <footer class="footer">
       <p>
-        Customer 360° Support Bot – built by Soumyadip for
-        <strong>Zoho Cliqtrix</strong> using Zoho SalesIQ Zobot &amp; Zoho CRM.
+        Customer 360° Support Bot – designed and built by <strong>Soumyadip</strong> for
+        <strong> Zoho Cliqtrix</strong>, using Zoho SalesIQ Zobot, Zoho Desk, Zoho CRM and Zoho Subscriptions.
       </p>
     </footer>
   </main>
 
-  <!-- your Zoho SalesIQ widget (unchanged) -->
+  <!-- Zoho SalesIQ widget -->
   <script>
     window.$zoho = window.$zoho || {};
     $zoho.salesiq = $zoho.salesiq || { ready: function(){} }
@@ -246,3 +273,4 @@
   </script>
 </body>
 </html>
+
