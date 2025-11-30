@@ -2,520 +2,607 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Zoho Apps + Customer 360° Support Bot</title>
+  <title>Platform 360° Support – Zoho Products Help Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * { box-sizing: border-box; }
-
+    * {
+      box-sizing: border-box;
+    }
+    :root {
+      --bg-main: #020617;
+      --bg-card: rgba(15, 23, 42, 0.98);
+      --border-soft: rgba(148, 163, 184, 0.35);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.4);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #cbd5f5;
+      --pill-bg: rgba(15, 23, 42, 0.75);
+    }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #020617;
-      color: #e5e7eb;
+      background: radial-gradient(circle at top, #1f2937, var(--bg-main));
+      color: var(--text-main);
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* HEADER / NAVBAR */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(15,23,42,0.98);
-      border-bottom: 1px solid rgba(148,163,184,0.35);
-      backdrop-filter: blur(10px);
-    }
-    .nav-inner {
-      max-width: 1100px;
+    .page {
+      min-height: 100vh;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 12px 16px;
+      padding: 20px 16px 56px;
+    }
+
+    /* TOP NAV */
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      padding: 8px 0 12px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(15,23,42,0.8);
     }
-
-    /* “Zoho style” logo */
-    .logo-wrap {
+    .nav-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
-    .logo-boxes {
-      display: flex;
-      gap: 4px;
-    }
+    /* simple logo placeholder – replace src with real Zoho logo if you have it */
     .logo-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(107, 114, 128, 0.7);
+    }
+    .logo-block {
       width: 18px;
       height: 18px;
       border-radius: 4px;
     }
-    .logo-box:nth-child(1) { background:#f97316; }
-    .logo-box:nth-child(2) { background:#22c55e; }
-    .logo-box:nth-child(3) { background:#3b82f6; }
-    .logo-box:nth-child(4) { background:#e11d48; }
+    .logo-block.red { background: #ef4444; }
+    .logo-block.green { background: #22c55e; }
+    .logo-block.blue { background: #3b82f6; }
+    .logo-block.yellow { background: #eab308; }
     .logo-text {
       font-weight: 700;
-      letter-spacing: 0.06em;
-      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      font-size: 0.9rem;
     }
-
+    .nav-product-name {
+      font-size: 0.9rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--pill-bg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-soft);
+    }
     .nav-links {
       display: flex;
-      gap: 18px;
-      font-size: 0.95rem;
-      color: #cbd5f5;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
-    .nav-links a {
-      opacity: 0.85;
+    .nav-links span {
+      cursor: default;
+      padding: 4px 0;
     }
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    /* PAGE LAYOUT */
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
+    .nav-links span.highlight {
+      color: var(--accent);
+      font-weight: 500;
     }
 
     /* HERO */
     .hero {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      padding: 24px 20px;
-      border-radius: 20px;
-      background: radial-gradient(circle at top, #1d4ed8, #020617 55%);
-      margin-bottom: 32px;
-      border: 1px solid rgba(59,130,246,0.4);
+      gap: 16px;
+      margin-top: 20px;
+      margin-bottom: 28px;
     }
-    .hero-main h1 {
-      margin: 0 0 8px;
-      font-size: 2.3rem;
+    .hero-main-title {
+      font-size: 2.4rem;
+      line-height: 1.1;
+      margin: 0 0 6px;
     }
     .hero-sub {
-      margin: 0 0 18px;
-      color: #e5e7ff;
-      max-width: 620px;
+      margin: 0 0 16px;
+      font-size: 0.98rem;
+      max-width: 640px;
       line-height: 1.6;
+      color: var(--text-soft);
     }
-    .hero-pill {
+    .hero-tagline-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(15,23,42,0.8);
+      gap: 8px;
+      padding: 6px 12px;
       border-radius: 999px;
-      padding: 4px 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(55, 65, 81, 0.9);
       font-size: 0.78rem;
-      margin-bottom: 8px;
-      border: 1px solid rgba(148,163,184,0.5);
-      color: #c7d2fe;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 10px;
     }
-    .hero-btns {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-items: center;
     }
-    .btn-primary {
-      padding: 10px 20px;
+    .hero-btn {
+      padding: 10px 22px;
       border-radius: 999px;
       border: none;
+      cursor: pointer;
       font-weight: 600;
-      cursor: pointer;
-      background: #22c55e;
-      color: #022c22;
-      box-shadow: 0 14px 35px rgba(34,197,94,0.5);
+      font-size: 0.95rem;
+      background: var(--accent);
+      color: #020617;
+      box-shadow: 0 12px 32px var(--accent-soft);
     }
-    .btn-primary:hover { filter: brightness(1.05); }
-    .btn-ghost {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(209,213,219,0.6);
-      background: transparent;
-      color: #e5e7eb;
-      cursor: pointer;
-      font-size: 0.9rem;
+    .hero-btn:hover {
+      filter: brightness(1.05);
+    }
+    .hero-secondary-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .hero-secondary-text strong {
+      color: var(--text-soft);
     }
 
-    .hero-side {
+    .hero-right {
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.85);
       font-size: 0.85rem;
-      color: #c7d2fe;
-      max-width: 260px;
-      align-self: flex-start;
+      max-width: 320px;
     }
-    .hero-side strong { display:block; margin-bottom:4px; }
+    .hero-right h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+    }
+    .hero-right p {
+      margin: 4px 0;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
     /* PRODUCTS GRID */
-    .section-title {
-      margin: 0 0 6px;
-      font-size: 1.4rem;
+    .section {
+      margin-bottom: 32px;
     }
-    .section-sub {
-      margin: 0 0 18px;
-      font-size: 0.95rem;
-      color: #9ca3af;
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .section-header p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      margin-bottom: 36px;
     }
     .product-card {
-      padding: 18px 18px 16px;
+      padding: 16px 18px;
       border-radius: 16px;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(148,163,184,0.4);
-      box-shadow: 0 12px 30px rgba(15,23,42,0.7);
-      cursor: default;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.8);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
-    .product-header {
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:8px;
+    .product-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     .product-icon {
-      width:28px;
-      height:28px;
+      width: 36px;
+      height: 36px;
       border-radius: 999px;
-      background:#0ea5e9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size: 0.85rem;
-      font-weight:600;
-      color:#0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #020617;
+      background: #e5e7eb;
+      font-size: 1rem;
     }
-    .product-name {
+    .product-title {
       font-weight: 600;
+      font-size: 1rem;
     }
     .product-desc {
-      margin: 0 0 10px;
-      font-size: 0.9rem;
-      color: #d1d5db;
-      min-height: 48px;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.5;
     }
     .product-meta {
+      margin-top: 6px;
       font-size: 0.8rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      color:#9ca3af;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-    .pill {
-      padding:2px 8px;
-      border-radius:999px;
-      border:1px solid rgba(59,130,246,0.7);
-      font-size:0.78rem;
-      color:#bfdbfe;
-    }
-
-    /* CUSTOMER 360 SECTION (from your previous page) */
-    .c360-card {
-      padding: 24px 26px;
-      border-radius: 20px;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(148,163,184,0.4);
-      box-shadow: 0 18px 45px rgba(15,23,42,0.8);
-      margin-bottom: 28px;
-    }
-    .c360-card h2 {
-      margin-top:0;
-      margin-bottom:10px;
-      font-size:1.6rem;
-    }
-    .c360-card p {
-      margin: 6px 0;
-      line-height:1.6;
-    }
-    .hint {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #cbd5f5;
+    .meta-pill {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: var(--pill-bg);
     }
 
-    .feature-grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
+    /* HOW IT WORKS / VALUE */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
     }
-    .feature {
-      padding: 16px 18px;
+    .step-card {
+      padding: 14px 16px;
       border-radius: 14px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-soft);
+      font-size: 0.9rem;
     }
-    .feature h3 {
-      margin:0 0 6px;
-      font-size:1.02rem;
-    }
-    .feature p {
-      margin:0;
-      font-size:0.94rem;
-      color:#d1d5db;
-    }
-
-    .flow {
-      margin-top: 24px;
-    }
-    .flow h3 { margin-bottom: 8px; }
-    .flow ol {
-      padding-left: 20px;
-      margin: 0;
-      line-height: 1.7;
+    .step-card h3 {
+      margin: 0 0 6px;
       font-size: 0.95rem;
+    }
+    .step-card p {
+      margin: 0;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #020617;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 6px;
     }
 
     /* FOOTER */
     .footer {
-      font-size:0.85rem;
-      color:#9ca3af;
-      border-top:1px solid rgba(148,163,184,0.35);
-      padding-top:10px;
-      margin-top:26px;
-      margin-bottom:8px;
+      border-top: 1px solid var(--border-soft);
+      margin-top: 24px;
+      padding-top: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    @media (min-width: 780px) {
+    @media (min-width: 840px) {
       .hero {
         flex-direction: row;
-        justify-content: space-between;
         align-items: flex-start;
       }
-      .hero-main { max-width: 60%; }
-      .hero-side  { max-width: 32%; }
+      .hero-right {
+        margin-top: 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="logo-wrap">
-        <div class="logo-boxes">
-          <div class="logo-box"></div>
-          <div class="logo-box"></div>
-          <div class="logo-box"></div>
-          <div class="logo-box"></div>
+  <main class="page">
+
+    <!-- TOP BAR -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="logo-box">
+          <!-- simple colored blocks to mimic Zoho boxes; replace with real logo if you want -->
+          <span class="logo-block.red logo-block"></span>
+          <span class="logo-block.green logo-block"></span>
+          <span class="logo-block.blue logo-block"></span>
+          <span class="logo-block.yellow logo-block"></span>
+          <span class="logo-text">ZOHO</span>
         </div>
-        <div class="logo-text">ZOHO</div>
+        <span class="nav-product-name">Platform 360° Support</span>
       </div>
       <nav class="nav-links">
-        <a href="#apps">Products</a>
-        <a href="#c360">Customer 360° Bot</a>
-        <a href="#how">How it works</a>
+        <span class="highlight">Products</span>
+        <span>How support works</span>
+        <span>Why one bot?</span>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="page">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-main">
-        <div class="hero-pill">
-          <span>NEW</span> · <span>Hackathon prototype</span>
+      <div class="hero-left">
+        <div class="hero-tagline-pill">
+          <span>One bot. All your Zoho apps.</span>
         </div>
-        <h1>Explore Zoho Apps with a 360° Support Bot</h1>
+        <h1 class="hero-main-title">Business Subscriptions & Product Platform – 360° Support</h1>
         <p class="hero-sub">
-          A mini Zoho products hub powered by your <strong>Customer 360° Support Zobot</strong>.
-          Visitors can explore apps like Mail, CRM and Desk while your bot captures
-          leads, fetches tickets from Zoho Desk, and shows subscription context.
+          A unified support hub for your <strong>Zoho products</strong>.  
+          Customers can come here with issues about CRM, Desk, Mail, Books, Projects and more –
+          and your <strong>SalesIQ Zobot</strong> collects details, checks tickets and plan
+          information, then routes them to the right team.
         </p>
-        <div class="hero-btns">
-          <button class="btn-primary"
-            onclick="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
-            Browse apps
+        <div class="hero-actions">
+          <button class="hero-btn"
+            onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+            Explore supported products
           </button>
-          <button class="btn-ghost"
-            onclick="document.getElementById('c360').scrollIntoView({behavior:'smooth'})">
-            View support bot flow
-          </button>
+          <p class="hero-secondary-text">
+            Need help right now?  
+            <strong>Open the chat bubble in the bottom-right corner.</strong>
+          </p>
         </div>
       </div>
-      <aside class="hero-side">
-        <strong>Built with</strong>
-        Zoho SalesIQ · Zoho Desk · Zoho Subscriptions · Zoho CRM<br/><br/>
-        Your SalesIQ widget (bottom-right) is the entry point into the
-        Customer 360° support experience.
+
+      <aside class="hero-right">
+        <h3>What this page is for</h3>
+        <p>
+          👉 Show all Zoho apps your team supports in one place.<br/>
+          👉 Let users raise issues via a single <strong>Customer 360° Zobot</strong>.<br/>
+          👉 Behind the scenes, the bot talks to <strong>Zoho Desk, CRM, Subscriptions</strong>
+          to give your engineers full context.
+        </p>
+        <p style="margin-top:10px;color:var(--text-soft);">
+          This website is the front door.<br/>
+          The Zobot is the smart receptionist.
+        </p>
       </aside>
     </section>
 
-    <!-- PRODUCT GRID -->
-    <section id="apps">
-      <h2 class="section-title">Some of our most popular Zoho apps</h2>
-      <p class="section-sub">
-        Take your pick — the Customer 360° Support bot can assist across all of these.
-      </p>
+    <!-- PRODUCTS GRID -->
+    <section class="section" id="products">
+      <div class="section-header">
+        <h2>Zoho products we support from here</h2>
+        <p>Any issue about these apps → use the chat bubble and choose the right product.</p>
+      </div>
 
       <div class="product-grid">
+        <!-- Mail -->
         <article class="product-card">
-          <div class="product-header">
+          <div class="product-top">
             <div class="product-icon">M</div>
-            <div class="product-name">Mail</div>
+            <div class="product-title">Zoho Mail</div>
           </div>
           <p class="product-desc">
-            Secure email service for teams of all sizes with powerful
-            collaboration features.
+            Secure business email for your teams. Use the bot for issues like login problems,
+            SMTP / IMAP setup, deliverability or migration questions.
           </p>
           <div class="product-meta">
-            <span>Team communication</span>
-            <span class="pill">Connected to Bot</span>
+            <span class="meta-pill">Channel: Email</span>
+            <span class="meta-pill">Desk tickets + status</span>
           </div>
         </article>
 
+        <!-- Books -->
         <article class="product-card">
-          <div class="product-header">
+          <div class="product-top">
             <div class="product-icon">B</div>
-            <div class="product-name">Books</div>
+            <div class="product-title">Zoho Books</div>
           </div>
           <p class="product-desc">
-            Accounting platform for growing businesses. The bot can pull basic
-            subscription / invoice hints.
+            Accounting for growing businesses. Let customers ask about invoices,
+            payments, GST settings or integrations – the bot captures context for finance.
           </p>
           <div class="product-meta">
-            <span>Finance</span>
-            <span class="pill">Plan aware</span>
+            <span class="meta-pill">Finance</span>
+            <span class="meta-pill">Plan & billing info</span>
           </div>
         </article>
 
+        <!-- CRM -->
         <article class="product-card">
-          <div class="product-header">
+          <div class="product-top">
             <div class="product-icon">C</div>
-            <div class="product-name">CRM</div>
+            <div class="product-title">Zoho CRM</div>
           </div>
           <p class="product-desc">
-            Comprehensive CRM for customer-facing teams. New visitors become
-            structured <strong>Leads</strong> here via your Zobot.
+            Customer relationship management platform. Use the bot for pipeline issues,
+            automations, custom functions, blueprint and API-related questions.
           </p>
           <div class="product-meta">
-            <span>Sales</span>
-            <span class="pill">Lead capture</span>
+            <span class="meta-pill">Sales teams</span>
+            <span class="meta-pill">Lead created in CRM</span>
           </div>
         </article>
 
+        <!-- Desk -->
         <article class="product-card">
-          <div class="product-header">
+          <div class="product-top">
             <div class="product-icon">D</div>
-            <div class="product-name">Desk</div>
+            <div class="product-title">Zoho Desk</div>
           </div>
           <p class="product-desc">
-            Helpdesk software for customer support. Your bot can show the last
-            3 tickets for an email.
+            Helpdesk for customer support. Your bot can read last 3 tickets,
+            show status (Open / On Hold / Closed), and escalate to a human agent.
           </p>
           <div class="product-meta">
-            <span>Support</span>
-            <span class="pill">Ticket history</span>
+            <span class="meta-pill">Support teams</span>
+            <span class="meta-pill">Ticket history via API</span>
           </div>
         </article>
 
+        <!-- Projects -->
         <article class="product-card">
-          <div class="product-header">
+          <div class="product-top">
             <div class="product-icon">P</div>
-            <div class="product-name">Projects</div>
+            <div class="product-title">Zoho Projects</div>
           </div>
           <p class="product-desc">
-            Plan, track and collaborate on work. The bot can route project-related
-            issues to the right team.
+            Project management for engineering and operations. Orchestrate “bug vs feature”
+            flows, release-related queries, and project access requests through the bot.
           </p>
           <div class="product-meta">
-            <span>Collaboration</span>
-            <span class="pill">Smart routing</span>
+            <span class="meta-pill">Engineering</span>
+            <span class="meta-pill">Context for PMs</span>
           </div>
         </article>
 
+        <!-- People -->
         <article class="product-card">
-          <div class="product-header">
-            <div class="product-icon">S</div>
-            <div class="product-name">Subscriptions</div>
+          <div class="product-top">
+            <div class="product-icon">HR</div>
+            <div class="product-title">Zoho People</div>
           </div>
           <p class="product-desc">
-            Subscription billing and recurring payments. The bot can say:
-            “You’re on <strong>Pro plan</strong>, renewal on 10 Dec 2025”.
+            HR management for your organisation. Collect requests about leave, attendance,
+            onboarding issues or policy clarifications, then route to HR via Desk.
           </p>
           <div class="product-meta">
-            <span>Billing</span>
-            <span class="pill">Plan lookup</span>
+            <span class="meta-pill">HR & employees</span>
+            <span class="meta-pill">Secure context</span>
+          </div>
+        </article>
+
+        <!-- Payroll -->
+        <article class="product-card">
+          <div class="product-top">
+            <div class="product-icon">₹</div>
+            <div class="product-title">Zoho Payroll</div>
+          </div>
+          <p class="product-desc">
+            Payroll processing and compliance. The bot can capture salary slip issues,
+            bank details updates and statutory queries before HR/payroll takes over.
+          </p>
+          <div class="product-meta">
+            <span class="meta-pill">Finance & HR</span>
+            <span class="meta-pill">Sensitive data aware</span>
+          </div>
+        </article>
+
+        <!-- Expense -->
+        <article class="product-card">
+          <div class="product-top">
+            <div class="product-icon">Ex</div>
+            <div class="product-title">Zoho Expense</div>
+          </div>
+          <p class="product-desc">
+            Expense reporting platform. Use the bot for card sync problems, policy violations,
+            reimbursement delays and mobile app issues.
+          </p>
+          <div class="product-meta">
+            <span class="meta-pill">Travel & expense</span>
+            <span class="meta-pill">Approver context</span>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- CUSTOMER 360 SUPPORT SECTION -->
-    <section id="c360">
-      <div class="c360-card">
-        <h2>Customer 360° Support for Zoho</h2>
-        <p>
-          This website doubles as a demo for your <strong>Customer 360° Zobot</strong>.
-          Open the chat bubble in the bottom-right corner to talk to it. The bot
-          asks if you’re a <strong>New visitor</strong> or an
-          <strong> Existing customer</strong>, then:
-        </p>
+    <!-- HOW SUPPORT WORKS -->
+    <section class="section" id="how">
+      <div class="section-header">
+        <h2>How Platform 360° Support works</h2>
+        <p>Same entry point for all products. Under the hood, your backend is Zoho.</p>
+      </div>
 
-        <div class="feature-grid">
-          <article class="feature">
-            <h3>1. Automatic Lead Capture (CRM)</h3>
-            <p>
-              New visitors go through a short questionnaire. The bot scores the
-              request (Hot / Warm / Cold) and creates a Lead in Zoho CRM with
-              name, email, company, need and priority.
-            </p>
-          </article>
-          <article class="feature">
-            <h3>2. Ticket &amp; Plan Context (Desk + Subscriptions)</h3>
-            <p>
-              For existing customers, the bot looks up their last three Zoho Desk
-              tickets and (optionally) their Zoho Subscriptions plan, so agents
-              see context instantly.
-            </p>
-          </article>
-          <article class="feature">
-            <h3>3. Smart Handoff to Human Agents</h3>
-            <p>
-              When needed, the conversation is forwarded to an operator together
-              with the collected context, so support engineers can jump in
-              without asking repeated questions.
-            </p>
-          </article>
-        </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <h3><span class="step-number">1</span>Customer arrives here</h3>
+          <p>
+            They pick their Zoho product from the grid above, or simply describe the issue.
+            The <strong>Customer 360° Zobot</strong> asks structured questions (New vs Existing,
+            impact, product, screenshots link, etc.).
+          </p>
+        </article>
 
-        <p class="hint">
-          Tip: Try the “Existing customer” path using your own email. In your
-          final hackathon demo you can show Zoho Desk tickets and plan info
-          appearing on the agent side.
-        </p>
+        <article class="step-card">
+          <h3><span class="step-number">2</span>Bot pulls 360° context</h3>
+          <p>
+            Using <strong>Zoho Desk</strong>, <strong>CRM</strong> and
+            <strong>Subscriptions</strong> APIs, the bot can see recent tickets, lead details,
+            plan & renewal info – so your engineer never starts from zero.
+          </p>
+        </article>
 
-        <div class="flow" id="how">
-          <h3>How the full flow works</h3>
-          <ol>
-            <li>Visitor lands here and opens the Zoho SalesIQ chat bubble.</li>
-            <li>Bot asks: <strong>“New visitor”</strong> or <strong>“Existing customer”</strong>.</li>
-            <li>New visitor → bot collects details → creates a <strong>Lead</strong> in Zoho CRM.</li>
-            <li>Existing customer → bot verifies email → fetches Desk tickets / plan → forwards to operator.</li>
-          </ol>
-        </div>
+        <article class="step-card">
+          <h3><span class="step-number">3</span>Smart routing to humans</h3>
+          <p>
+            Based on product + urgency, the conversation is forwarded to the right queue in
+            Zoho Desk or to your internal Zoho Cliq channel, including all captured context
+            and scoring information.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHY SINGLE BOT -->
+    <section class="section">
+      <div class="section-header">
+        <h2>Why one bot for every product?</h2>
+        <p>Better experience for customers, less chaos for engineers.</p>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <h3>Consistent intake</h3>
+          <p>
+            Same set of questions across Mail, Books, CRM, Desk, Projects, etc.
+            No more “Can you paste your org ID again?” every time a ticket moves.
+          </p>
+        </article>
+        <article class="step-card">
+          <h3>Cross-product visibility</h3>
+          <p>
+            If a CRM change broke Books, or a Mail policy affects Desk, your teams can see it.
+            Platform 360° Support makes Zoho feel like one product, not fifteen.
+          </p>
+        </article>
+        <article class="step-card">
+          <h3>Ready for internal hacks</h3>
+          <p>
+            This page can be extended with more APIs, internal tools, and custom engineer
+            shortcuts – but the <strong>SalesIQ Zobot</strong> remains the single smart entry point.
+          </p>
+        </article>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-      Customer 360° Support site &amp; Zobot UI – built by Soumyadip for
-      <strong> Zoho Cliqtrix</strong> using Zoho SalesIQ, Zoho Desk, Zoho Subscriptions &amp; Zoho CRM.
+      <span>
+        Platform 360° Support – prototype built by Soumyadip for
+        <strong> Zoho Cliqtrix </strong> using Zoho SalesIQ Zobot + Zoho Desk/CRM/Subscriptions.
+      </span>
+      <span>Open the chat bubble in the bottom-right corner to start a conversation.</span>
     </footer>
   </main>
 
-  <!-- SalesIQ widget: keep your existing snippet here -->
+  <!-- SalesIQ widget: keep your own snippet here -->
   <script>
     window.$zoho = window.$zoho || {};
     $zoho.salesiq = $zoho.salesiq || { ready: function(){} };
   </script>
-  <script id="zsiqscript"
+  <script
+    id="zsiqscript"
     src="https://salesiq.zohopublic.com/widget?wc=siq2be11536b601efca130529e4860b9ef771b27d311e12b07cbd631c8c88d15d5b"
     defer>
   </script>
 </body>
 </html>
+
 
