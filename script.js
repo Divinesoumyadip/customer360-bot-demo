@@ -1,11 +1,9 @@
-// Smooth scroll to sections
 function smoothScrollTo(selector) {
   const el = document.querySelector(selector);
   if (!el) return;
   el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-// navbar links
 document.querySelectorAll(".nav-link").forEach(link => {
   link.addEventListener("click", e => {
     const href = link.getAttribute("href");
@@ -16,7 +14,6 @@ document.querySelectorAll(".nav-link").forEach(link => {
   });
 });
 
-// demo button → scroll to contact (so user is close to chat + form)
 const demoBtn = document.getElementById("demo-btn");
 if (demoBtn) {
   demoBtn.addEventListener("click", () => {
@@ -24,7 +21,6 @@ if (demoBtn) {
   });
 }
 
-// highlight active nav link based on scroll position
 const sections = document.querySelectorAll(".page-section");
 const navLinks = document.querySelectorAll(".nav-link");
 
