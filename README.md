@@ -1,6 +1,8 @@
 # customer360-bot-demo
 
 # Platform 360° – Product Support Hub
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ba80dcb3-bbd4-4fe3-b94a-9f9c9568d3ac" />
+
 
 A single entry-point **support website + smart bot** that helps customers raise issues for all your products, and gives engineers a 360° view of the customer before they even join the chat.
 
@@ -13,6 +15,7 @@ Built for the **Cliqtrix** hackathon using:
 ---
 
 ## 🎯 What this project does
+
 
 **Platform 360°** is a mini “support hub” where:
 
