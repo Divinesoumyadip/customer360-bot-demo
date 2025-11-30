@@ -1,6 +1,4 @@
-# customer360-bot-demo
-
-# Platform 360° – Product Support Hub
+# Platform 360° BOT – Product Support Hub
 <img width="1885" height="900" alt="image" src="https://github.com/user-attachments/assets/e19b49c8-3fe0-4430-ab7e-1abcb2f763cc" />
 
 
