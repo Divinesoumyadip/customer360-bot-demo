@@ -1,7 +1,8 @@
 # customer360-bot-demo
 
 # Platform 360° – Product Support Hub
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ba80dcb3-bbd4-4fe3-b94a-9f9c9568d3ac" />
+<img width="1885" height="900" alt="image" src="https://github.com/user-attachments/assets/e19b49c8-3fe0-4430-ab7e-1abcb2f763cc" />
+
 
 
 A single entry-point **support website + smart bot** that helps customers raise issues for all your products, and gives engineers a 360° view of the customer before they even join the chat.
@@ -14,7 +15,9 @@ Built for the **Cliqtrix** hackathon using:
 
 ---
 
-## 🎯 What this project does
+##  What this project does
+
+<img width="498" height="738" alt="image" src="https://github.com/user-attachments/assets/11d338be-2969-44d3-8eca-e9cd78b4a990" />
 
 
 **Platform 360°** is a mini “support hub” where:
@@ -33,7 +36,9 @@ The site branding and product names (Inbox360, BillPro, SupportDesk, etc.) are *
 
 ---
 
-## 🧩 Features
+##  Features
+
+
 
 ### 1. Frontend – Support Hub Website
 
@@ -49,6 +54,10 @@ The site branding and product names (Inbox360, BillPro, SupportDesk, etc.) are *
   - The idea of one bot, handling many products
 
 ### 2. Bot – Platform 360° Support (SalesIQ Zobot)
+
+
+<img width="1663" height="735" alt="image" src="https://github.com/user-attachments/assets/29d61176-ac31-4909-be73-47951e61e683" />
+
 
 - **Message handler (Deluge):**
   - Welcomes the visitor
@@ -88,7 +97,7 @@ Connections (example names):
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 **Frontend**
 
@@ -109,7 +118,7 @@ All “backend” logic sits inside **Zoho’s Deluge environment**.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 .
