@@ -10,7 +10,6 @@ body {
   color: #111827;
 }
 
-/* NAVBAR */
 .navbar {
   position: sticky;
   top: 0;
@@ -35,7 +34,6 @@ body {
   gap: 10px;
 }
 
-/* Simple brand logo: circle with P */
 .brand-logo {
   width: 30px;
   height: 30px;
@@ -79,7 +77,6 @@ body {
   border-color: #2563eb;
 }
 
-/* MAIN LAYOUT */
 .page {
   max-width: 1100px;
   margin: 0 auto;
@@ -90,7 +87,6 @@ body {
   margin-bottom: 40px;
 }
 
-/* HOME / HERO */
 .hero {
   text-align: center;
 }
@@ -137,7 +133,6 @@ body {
   color: #6b7280;
 }
 
-/* SECTIONS GENERAL */
 .section h2 {
   font-size: 1.4rem;
   margin-bottom: 8px;
@@ -150,7 +145,6 @@ body {
   margin-bottom: 18px;
 }
 
-/* PRODUCTS GRID */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -176,7 +170,6 @@ body {
   line-height: 1.6;
 }
 
-/* CONTACT LAYOUT */
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -259,7 +252,6 @@ body {
   margin-top: 6px;
 }
 
-/* INFO BAR */
 .info-bar {
   margin-top: 40px;
   background: #ffffff;
@@ -272,7 +264,6 @@ body {
   color: #4338ca;
 }
 
-/* RESPONSIVE */
 @media (max-width: 800px) {
   .contact-layout {
     grid-template-columns: 1fr;
