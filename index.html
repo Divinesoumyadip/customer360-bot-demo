@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Platform 360° Support – Zoho Help Hub</title>
+  <title>Platform 360° – Product Support Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -12,84 +12,176 @@
   <header class="navbar">
     <div class="nav-inner">
       <div class="nav-left">
-        <div class="logo-box">
-          <span class="logo-block logo-red"></span>
-          <span class="logo-block logo-green"></span>
-          <span class="logo-block logo-blue"></span>
-          <span class="logo-block logo-yellow"></span>
-          <span class="logo-text">ZOHO</span>
-        </div>
-        <span class="brand-title">Platform 360° Support</span>
+        <!-- Simple brand logo -->
+        <div class="brand-logo">P</div>
+        <span class="brand-title">Platform 360°</span>
       </div>
       <nav class="nav-links">
         <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">Products</a>
+        <a href="#products" class="nav-link">Products</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="home" class="page">
+  <main class="page">
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- HOME -->
+    <section id="home" class="page-section hero">
       <h1 class="hero-title">
-        Welcome to <span class="hero-highlight">Platform 360° Support</span> – Zoho Help Hub
+        Welcome to <span class="hero-highlight">Platform 360° Support Hub</span>
       </h1>
 
       <p class="hero-sub">
-        Elevate your customer and engineer experience with a single Zoho-powered support bot.
-        The <strong>Customer 360° Zobot</strong> collects issues for
-        <strong>CRM, Desk, Mail, Books, Projects</strong> and more, then routes them to the right team
-        with full context from <strong>Zoho Desk, CRM &amp; Subscriptions</strong>.
+        Central support for your entire product suite. The
+        <strong>Platform 360° bot</strong> captures issues for all your apps,
+        scores the priority and routes them to the right team with full context.
       </p>
 
       <button id="demo-btn" class="hero-btn">
-        ▶ Try the live demo
+        ▶ Start a support request
       </button>
-    </section>
 
-    <!-- PRODUCTS / ABOUT -->
-    <section id="about" class="section">
-      <h2>What can you raise issues about?</h2>
-      <p>
-        Use this hub for questions or incidents related to your Zoho products:
-        Mail, CRM, Desk, Books, People, Projects, Payroll, Expense and other internal tools.
-        Just open the chat in the bottom-right corner, tell the bot which product you’re using,
-        and it will guide you through a short flow to gather all the details your engineers need.
+      <p class="hero-tagline">
+        Powered by <strong>Your Brand</strong> – one place for all customer help.
       </p>
     </section>
 
-    <!-- CONTACT / HOW-TO -->
-    <section id="contact" class="section">
-      <h2>How to contact the support bot</h2>
-      <p>
-        Everything starts from the <strong>Zoho SalesIQ chat bubble</strong>. Once you start a
-        conversation, the bot can:
+    <!-- PRODUCTS -->
+    <section id="products" class="page-section section products">
+      <h2>Products covered by Platform 360°</h2>
+      <p class="section-intro">
+        Customers choose the product in chat and the bot knows exactly what
+        information to collect for your engineers.
       </p>
-      <ul>
-        <li>Classify your request (bug, billing, configuration, feature idea)</li>
-        <li>Look up recent tickets and subscription plan information</li>
-        <li>Forward the chat to the right operator queue with context attached</li>
-      </ul>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <h3>Inbox360 (Email)</h3>
+          <p>
+            Email sending, delivery and login issues. The bot collects affected mailbox,
+            error messages and severity, so your email team can debug faster.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <h3>BillPro (Billing &amp; Subscriptions)</h3>
+          <p>
+            Subscription, payment or invoice problems. The bot fetches plan name,
+            renewal date and payment status to give your finance team full context.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <h3>SupportDesk</h3>
+          <p>
+            Ticket assignment, automation or SLA issues. The bot can look up recent
+            tickets for the customer and show the last few to the agent.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <h3>ProjectFlow</h3>
+          <p>
+            Project, task and sprint blockers. The bot captures project name, URL and
+            blocker type so engineering can jump straight into the right place.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <h3>PeopleHub (HR)</h3>
+          <p>
+            Onboarding, leaves, approvals or access issues. The bot gathers employee ID,
+            team and scenario to route to HR or IT support.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <h3>Insight360 (Analytics)</h3>
+          <p>
+            Dashboard, report and data quality questions. The bot collects dashboard links,
+            filters used and expected vs actual values for your data team.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <!-- BOTTOM INFO BAR -->
+    <!-- CONTACT -->
+    <section id="contact" class="page-section section contact">
+      <h2>Contact the Platform 360° team</h2>
+      <p class="section-intro">
+        This form is just a demo. In a real deployment, you can connect it to any backend
+        (email, helpdesk, database). For now, the main entry point is still the
+        <strong>chat bot in the bottom-right corner</strong>.
+      </p>
+
+      <div class="contact-layout">
+        <form class="contact-form">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" type="text" placeholder="Your Name" />
+          </div>
+
+          <div class="field">
+            <label for="email">Work email</label>
+            <input id="email" type="email" placeholder="you@company.com" />
+          </div>
+
+          <div class="field">
+            <label for="product">Product</label>
+            <select id="product">
+              <option>Inbox360 (Email)</option>
+              <option>BillPro (Billing &amp; Subscriptions)</option>
+              <option>SupportDesk</option>
+              <option>ProjectFlow</option>
+              <option>PeopleHub (HR)</option>
+              <option>Insight360 (Analytics)</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Short description</label>
+            <textarea id="message" rows="4"
+              placeholder="Tell us briefly what you’re facing…"></textarea>
+          </div>
+
+          <button type="button" class="form-btn">
+            Submit (demo only – use the chat bot for real help)
+          </button>
+        </form>
+
+        <div class="contact-side">
+          <h3>Fastest way: chat with the bot 👇</h3>
+          <p>
+            Click the <strong>chat bubble</strong> at the bottom-right. The bot will:
+          </p>
+          <ul>
+            <li>Ask which product you’re using</li>
+            <li>Collect the technical details your team needs</li>
+            <li>Score and route the case to the correct queue</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO BAR -->
     <div class="info-bar">
-      Please tap the chat icon on the bottom-right side to initiate a conversation with the
-      Platform 360° Support bot.
+      Please tap the chat icon on the bottom-right side to start a conversation
+      with the Platform 360° Support bot.
     </div>
   </main>
 
-  <!-- JS for scrolling and nav highlight -->
+  <!-- PAGE JS -->
   <script src="script.js"></script>
 
-  <!-- Zoho SalesIQ widget (keep your own widget link here) -->
+  <!-- Bot widget (keep your existing SalesIQ snippet here) -->
   <script>
     window.$zoho = window.$zoho || {};
     $zoho.salesiq = $zoho.salesiq || { ready: function(){} };
   </script>
-  <script id="zsiqscript"
+  <script
+    id="zsiqscript"
     src="https://salesiq.zohopublic.com/widget?wc=siq2be11536b601efca130529e4860b9ef771b27d311e12b07cbd631c8c88d15d5b"
     defer>
   </script>
