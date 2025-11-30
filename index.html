@@ -2,275 +2,287 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Customer 360° Support for Zoho</title>
+  <title>Customer 360° – Zoho Apps Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937, #020617);
-      color: #e5e7eb;
+      background: #f3f4f6;
+      color: #111827;
     }
+
     .page {
       min-height: 100vh;
-      padding: 32px 16px 48px;
-      max-width: 1024px;
-      margin: 0 auto;
-    }
-
-    /* HERO */
-    .hero {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
     }
-    .hero-text h1 {
+
+    /* Top nav (very simple) */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 32px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+    }
+    .nav-links a:hover { color: #111827; }
+
+    /* Hero banner */
+    .hero {
+      background: #0b63ce;
+      color: #ffffff;
+      padding: 48px 24px 56px;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .hero h1 {
       margin: 0 0 8px;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
+      font-weight: 700;
     }
-    .hero-sub {
-      margin: 0 0 16px;
-      line-height: 1.6;
-      color: #cbd5f5;
-      max-width: 620px;
+    .hero p {
+      margin: 0 0 20px;
+      font-size: 1.05rem;
+      opacity: 0.95;
     }
-    .hero-btn {
-      padding: 10px 20px;
+    .hero-accent {
+      width: 60px;
+      height: 3px;
+      margin: 18px auto 0;
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      background: #22c55e;
-      color: #020617;
-      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
-    }
-    .hero-btn:hover {
-      filter: brightness(1.05);
-    }
-    .hero-tag {
-      font-size: 0.9rem;
-      color: #a5b4fc;
-      max-width: 260px;
+      background: #facc15;
     }
 
-    /* DEMO CARD */
-    .demo-section {
-      margin-bottom: 32px;
+    /* Apps grid */
+    .apps-section {
+      padding: 32px 16px 48px;
+      max-width: 1120px;
+      margin: 0 auto;
     }
-    .card {
-      padding: 24px 28px;
-      border-radius: 20px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
-    }
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.8rem;
-    }
-    .card p {
-      margin: 6px 0;
-      line-height: 1.6;
-    }
-    .hint {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #cbd5f5;
-    }
-
-    /* FEATURES */
-    .features {
-      margin-bottom: 32px;
-    }
-    .features h2,
-    .flow h2 {
-      margin-bottom: 12px;
-    }
-    .feature-grid {
+    .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
     }
-    .feature {
-      padding: 16px 18px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+    .app-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.06);
     }
-    .feature h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .app-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #2563eb;
+    }
+    .app-name {
+      font-weight: 600;
       font-size: 1.05rem;
     }
-    .feature p {
-      margin: 0;
+    .app-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
       line-height: 1.5;
-      font-size: 0.95rem;
+    }
+    .app-meta {
+      margin-top: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: #6b7280;
+    }
+    .app-cta {
+      margin-top: auto;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .app-cta span {
+      font-size: 1rem;
     }
 
-    /* FLOW */
-    .flow {
-      margin-bottom: 32px;
-    }
-    .flow ol {
-      padding-left: 20px;
-      margin: 0;
-      line-height: 1.7;
-    }
-
-    /* FOOTER */
     .footer {
+      margin-top: auto;
+      padding: 16px 24px 20px;
       font-size: 0.85rem;
-      color: #9ca3af;
-      border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding-top: 12px;
-      margin-top: 16px;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
     }
 
-    @media (min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
+    @media (max-width: 640px) {
+      .nav { padding: 10px 16px; }
+      .hero { padding: 32px 16px 40px; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Customer 360° Support for Zoho Teams</h1>
-        <p class="hero-sub">
-          A full–stack Zoho support assistant that connects
-          <strong>SalesIQ, Zoho Desk, Zoho CRM, and Zoho Subscriptions</strong>.
-          It qualifies visitors, surfaces past tickets and plan details, and routes conversations to the right engineer – all in one place.
-        </p>
-        <button class="hero-btn"
-          onclick="document.getElementById('demo-card').scrollIntoView({behavior:'smooth'})">
-          ▶ Try the live demo
-        </button>
-      </div>
-      <div class="hero-tag">
-        <span>Built with</span><br />
-        <strong>Zoho SalesIQ · Zoho Desk · Zoho CRM · Zoho Subscriptions</strong>
-      </div>
-    </section>
+<div class="page">
 
-    <!-- DEMO CARD -->
-    <section class="demo-section" id="demo-card">
-      <div class="card">
-        <h2>Live Demo: Customer 360° Support Bot</h2>
-        <p>
-          Click the chat bubble in the bottom-right corner to talk to the bot.
-          It will ask whether you're a <strong>New visitor</strong> or an
-          <strong>Existing customer</strong> and then show how the full Customer 360° view works.
-        </p>
-        <p>
-          For <strong>new visitors</strong>, the bot collects name, email, company and requirement,
-          scores the lead (Hot / Warm / Cold) and can push it into <strong>Zoho CRM</strong>
-          for your sales team.
-        </p>
-        <p>
-          For <strong>existing customers</strong>, the bot verifies the email, fetches the customer’s
-          latest <strong>Zoho Desk tickets</strong> and active <strong>Zoho Subscriptions plan</strong>,
-          and then forwards the chat to an operator with that context attached.
-        </p>
-        <p class="hint">
-          Tip: Try the <strong>New visitor</strong> flow first, then the
-          <strong>Existing customer</strong> flow with your email.
-        </p>
-      </div>
-    </section>
+  <!-- Simple top nav -->
+  <header class="nav">
+    <div class="nav-left">
+      <span>🔵</span>
+      <span>Customer 360° Support</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Overview</a>
+      <a href="#">Apps</a>
+      <a href="#">How it works</a>
+      <a href="#">Docs</a>
+    </nav>
+  </header>
 
-    <!-- FEATURES -->
-    <section class="features">
-      <h2>Why Customer 360° Support for Zoho?</h2>
-      <div class="feature-grid">
-        <article class="feature">
-          <h3>1. Automatic Lead Capture</h3>
-          <p>
-            Every qualified website visitor becomes a structured lead in
-            <strong>Zoho CRM</strong> with name, email, company, requirement and a priority score –
-            no manual entry needed.
-          </p>
-        </article>
-
-        <article class="feature">
-          <h3>2. Smart Visitor Routing</h3>
-          <p>
-            The bot classifies traffic as <strong>New visitor</strong> or
-            <strong>Existing customer</strong>, then sends them down the right flow –
-            lead creation for sales, or rich-context handoff for support engineers.
-          </p>
-        </article>
-
-        <article class="feature">
-          <h3>3. 360° Context for Engineers</h3>
-          <p>
-            When a chat reaches an operator, they instantly see recent
-            <strong>Zoho Desk tickets</strong>, subscription status from
-            <strong>Zoho Subscriptions</strong>, and lead information from
-            <strong>Zoho CRM</strong> – all sourced via Zoho Connections.
-          </p>
-        </article>
-
-        <article class="feature">
-          <h3>4. Built for Zoho’s Internal Stack</h3>
-          <p>
-            Designed specifically for Zoho teams: it uses SalesIQ Zobot, OAuth Connections,
-            and Deluge to talk to Desk, CRM and Subscriptions, so it fits naturally into
-            existing Zoho workflows.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="flow">
-      <h2>How it works</h2>
-      <ol>
-        <li>Visitor lands on this website and opens the <strong>Zoho SalesIQ</strong> chat bubble.</li>
-        <li>Bot asks: <strong>“New visitor”</strong> or <strong>“Existing customer”</strong>.</li>
-        <li>
-          For a new visitor, the bot collects details, scores priority, and can create a
-          <strong> Lead in Zoho CRM</strong>.
-        </li>
-        <li>
-          For an existing customer, the bot verifies their email, fetches last tickets from
-          <strong> Zoho Desk</strong> and plan info from <strong>Zoho Subscriptions</strong>,
-          then forwards the conversation to an operator with all that context.
-        </li>
-        <li>
-          After the chat, the bot can ask for a quick <strong>CSAT / rating</strong> so teams can monitor support quality.
-        </li>
-      </ol>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
+  <!-- Hero banner -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Some of our most powerful Zoho-connected assistants</h1>
       <p>
-        Customer 360° Support Bot – designed and built by <strong>Soumyadip</strong> for
-        <strong> Zoho Cliqtrix</strong>, using Zoho SalesIQ Zobot, Zoho Desk, Zoho CRM and Zoho Subscriptions.
+        Pick a product – the Customer 360° bot plugs into your existing Zoho stack:
+        SalesIQ, Desk, CRM, Subscriptions and more.
       </p>
-    </footer>
-  </main>
+      <div class="hero-accent"></div>
+    </div>
+  </section>
 
-  <!-- Zoho SalesIQ widget -->
-  <script>
-    window.$zoho = window.$zoho || {};
-    $zoho.salesiq = $zoho.salesiq || { ready: function(){} }
-  </script>
-  <script id="zsiqscript"
-    src="https://salesiq.zohopublic.com/widget?wc=siq2be11536b601efca130529e4860b9ef771b27d311e12b07cbd631c8c88d15d5b"
-    defer>
-  </script>
+  <!-- Apps grid -->
+  <section class="apps-section">
+    <div class="apps-grid">
+
+      <article class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📨</div>
+          <div class="app-name">SalesIQ</div>
+        </div>
+        <p class="app-desc">
+          Live chat & website tracking. The bot lives here, qualifying visitors and capturing context.
+        </p>
+        <p class="app-meta">Connected</p>
+        <div class="app-cta">Open SalesIQ view <span>›</span></div>
+      </article>
+
+      <article class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🎫</div>
+          <div class="app-name">Zoho Desk</div>
+        </div>
+        <p class="app-desc">
+          Fetches last 3 tickets for the customer so support engineers see history inside the chat.
+        </p>
+        <p class="app-meta">Used for: Ticket history</p>
+        <div class="app-cta">See ticket example <span>›</span></div>
+      </article>
+
+      <article class="app-card">
+        <div class="app-header">
+          <div class="app-icon">📊</div>
+          <div class="app-name">Zoho CRM</div>
+        </div>
+        <p class="app-desc">
+          Stores scored leads created from “New visitor” chats, with priority (Hot/Warm/Cold).
+        </p>
+        <p class="app-meta">Used for: Lead capture</p>
+        <div class="app-cta">View sample lead <span>›</span></div>
+      </article>
+
+      <article class="app-card">
+        <div class="app-header">
+          <div class="app-icon">💳</div>
+          <div class="app-name">Zoho Subscriptions</div>
+        </div>
+        <p class="app-desc">
+          Shows current plan, renewal date, and MRR when an existing customer contacts support.
+        </p>
+        <p class="app-meta">Used for: Plan context</p>
+        <div class="app-cta">Check plan status <span>›</span></div>
+      </article>
+
+      <article class="app-card">
+        <div class="app-header">
+          <div class="app-icon">👥</div>
+          <div class="app-name">Zoho People / Projects</div>
+        </div>
+        <p class="app-desc">
+          (Optional) Map chats to project teams or on-call engineers for faster routing.
+        </p>
+        <p class="app-meta">Experimental</p>
+        <div class="app-cta">Explore routing ideas <span>›</span></div>
+      </article>
+
+      <article class="app-card">
+        <div class="app-header">
+          <div class="app-icon">⭐</div>
+          <div class="app-name">CSAT & Feedback</div>
+        </div>
+        <p class="app-desc">
+          Post-chat rating flow built into the bot: 1–5 stars + comments, logged back into Desk/CRM.
+        </p>
+        <p class="app-meta">Used for: Quality tracking</p>
+        <div class="app-cta">Preview rating flow <span>›</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    Customer 360° Support – demo hub for Soumyadip’s Zoho Cliqtrix project.
+    Powered by Zoho SalesIQ Zobot and Zoho platform APIs.
+  </footer>
+</div>
+
+<!-- Your Zoho SalesIQ widget so the same bot appears on this page -->
+<script>
+  window.$zoho = window.$zoho || {};
+  $zoho.salesiq = $zoho.salesiq || { ready: function(){} };
+</script>
+<script id="zsiqscript"
+  src="https://salesiq.zohopublic.com/widget?wc=siq2be11536b601efca130529e4860b9ef771b27d311e12b07cbd631c8c88d15d5b"
+  defer>
+</script>
 </body>
 </html>
 
